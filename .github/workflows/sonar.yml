@@ -33,8 +33,9 @@ jobs:
         account_id: ${{ secrets.AWS_ACCOUNT_ID }}
         repo: jenkins-sonar
         region: ap-south-1
-        tags: latest
-        create_repo: true   
+        create_repo: true  
+        path: .
+        dockerfile: Dockerfile
       
      
     

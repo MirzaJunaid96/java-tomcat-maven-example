@@ -16,13 +16,13 @@ jobs:
        # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   
-    - name: Login to Docker Hub
-      run: | 
-       echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    #- name: Login to Docker Hub
+     # run: | 
+      # echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
      
-    - name: build & push
-      run: | 
-       docker build -t "mirzajunaid/company:111" .
+    #- name: build & push
+     # run: | 
+      # docker build -t "mirzajunaid/company:111" .
        #docker push mirzajunaid/company:111  
           
     - name: build docker image and pushed to aws ECR

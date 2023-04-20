@@ -49,12 +49,16 @@ jobs:
 #        REMOTE_HOST: ${{ secrets.HOST_DNS }}
 #        REMOTE_USER: ${{ secrets.USERNAME }}
 #        TARGET: .
-    - run: | 
-       cat ${{ secrets.EC2_SSH_KEY }} > ec2demo.pem
-       chmod 400 ec2demo.pem
-       ssh -o StrictHostKeyChecking=no -i ec2demo.pem ubuntu@43.205.138.72 
-       curl -sSL https://get.docker.com | bash 
-       docker build -t "react:1" .
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+         host: ${{ secrets.HOST_DNS }}
+         username: ${{ secrets.USERNAME }}
+         key: ${{ secrets.EC2_SSH_KEY }}
+         port: 22
+         script: |
+          curl -sSL https://get.docker.com | bash
+          
       
       
      

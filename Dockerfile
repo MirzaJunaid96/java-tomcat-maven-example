@@ -6,5 +6,5 @@ RUN mvn clean package
 # deployment 
 FROM tomcat:latest
 MAINTAINER Bharat
-COPY -from=build /app/target/java-tomcat-maven-example.war /usr/local/tomcat/webapps/java-tomcat-maven-example.war
+COPY --from=build /app/target/java-tomcat-maven-example.war /usr/local/tomcat/webapps/java-tomcat-maven-example.war
 

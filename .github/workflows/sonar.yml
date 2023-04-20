@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: SonarQube Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    #- name: SonarQube Scan
+     # uses: sonarsource/sonarqube-scan-action@master
+      #env:
+       # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   
     - name: Login to Docker Hub
       run: | 
@@ -23,19 +23,18 @@ jobs:
     - name: build & push
       run: | 
        docker build -t "mirzajunaid/company:111" .
-       #docker push mirzajunaid/company:111
-       
-        
+       #docker push mirzajunaid/company:111  
+          
     - name: build docker image and pushed to aws ECR
-      uses: vitr/actions-build-and-upload-to-ecs@master
+      uses: docker://ghcr.io/kciter/aws-ecr-action:latest
       with:
-          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-          repo: docker/repo
-          region: ap-south-1
-          tags: latest,${{ github.sha }}
-          create_repo: true   
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+        repo: docker/repo
+        region: ap-south-1
+        tags: latest
+        create_repo: true   
       
      
     

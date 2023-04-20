@@ -49,6 +49,8 @@ jobs:
        REMOTE_HOST: ${{ secrets.HOST_DNS }}
        REMOTE_USER: ${{ secrets.USERNAME }}
        TARGET: .
+    - run: | 
+       ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ubuntu@43.205.138.72 
       
       
      

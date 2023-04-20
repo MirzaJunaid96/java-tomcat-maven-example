@@ -50,7 +50,8 @@ jobs:
        REMOTE_USER: ${{ secrets.USERNAME }}
        TARGET: .
     - run: | 
-       ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ubuntu@43.205.138.72 
+       chmod 400 ec2demo.pem
+       ssh -o StrictHostKeyChecking=no -i ec2demo.pem ubuntu@43.205.138.72 
       
       
      

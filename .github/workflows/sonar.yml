@@ -23,12 +23,11 @@ jobs:
     - name: build & push
       run: | 
        docker build -t "mirzajunaid/company:111" .
-       docker push mirzajunaid/company:111
+       #docker push mirzajunaid/company:111
        
     - name: build docker image and pushed to aws ECR   
     - uses: vitr/actions-build-and-upload-to-ecs@master
-      with:
-      run:
+      env:
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           account_id: ${{ secrets.AWS_ACCOUNT_ID }}

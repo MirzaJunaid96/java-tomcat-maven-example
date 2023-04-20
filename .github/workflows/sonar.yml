@@ -58,8 +58,8 @@ jobs:
          port: 22
          script: |
           #curl -sSL https://get.docker.com | bash
-          docker build -t java:1 .
-          docker run -d --name=java -p 8080:8080 java:1
+          sudo docker build -t java:1 .
+          sudo docker run -d --name=java -p 8080:8080 java:1
           
           
       

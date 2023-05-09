@@ -58,9 +58,9 @@ jobs:
          key: ${{ secrets.EC2_SSH_KEY }}
          port: 22
          script: |
-          curl -sSL https://get.docker.com | bash
-          usermod -aG docker $USER
-          docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          sudo  curl -sSL https://get.docker.com | bash
+          sudo usermod -aG docker $USER
+          sudo docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
           
           
       

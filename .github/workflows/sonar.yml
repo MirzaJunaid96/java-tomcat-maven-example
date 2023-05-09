@@ -59,7 +59,8 @@ jobs:
          port: 22
          script: |
           curl -sSL https://get.docker.com | bash
-          sudo docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          usermod -aG docker $USER
+          docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
           
           
       

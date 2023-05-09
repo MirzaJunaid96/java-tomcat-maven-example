@@ -52,14 +52,17 @@ jobs:
 #         TARGET: .
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v0.1.10
+      env:
+           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+           REPOSITORY: my-ecr
+           IMAGE_TAG: latest
       with:
          host: ${{ secrets.HOST_DNS }}
          username: ${{ secrets.USERNAME }}
          key: ${{ secrets.EC2_SSH_KEY }}
          port: 22
          script: |
-         
-             sudo docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          sudo docker run -d --name=java -p 8080:8080 $REGISTRY/$REPOSITORY:$IMAGE_TAG
           
           
       

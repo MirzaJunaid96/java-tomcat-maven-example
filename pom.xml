@@ -37,7 +37,7 @@
       <snapshotRepository>
         <id>nexus</id>
         <name>Maven_Snapshot</name>
-        <url>http://44.204.60.133:8081/repository/testmaven//</url>
+        <url>http://174.129.63.183:8081/repository/testmaven//</url>
       </snapshotRepository>
       
   </distributionManagement>

@@ -1,4 +1,4 @@
-# hello
+#
 name: jenkins-sonar-integration
 on:
  push: 

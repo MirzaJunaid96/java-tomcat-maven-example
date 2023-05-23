@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+     name: deployment-test
     steps:
     - uses: actions/checkout@v2
     #- name: SonarQube Scan
